@@ -5,7 +5,6 @@ import gevent
 from pika.adapters.base_connection import BaseConnection
 from pika.heartbeat import HeartbeatChecker
 
-
 class _GeventHeartbeatChecker(HeartbeatChecker):
     def send_and_check(self):
         """Send and check heartbeat in a Greenlet object"""
@@ -138,3 +137,15 @@ class GeventConnection(BaseConnection):
     def _handle_ioloop_stop(self):
         """DO NOTHING"""
         pass
+
+    @staticmethod
+    def _create_tcp_connection_socket(sock_family, sock_type, sock_proto):
+        """ Create TCP/IP stream socket for AMQP connection
+
+        :param int sock_family: socket family
+        :param int sock_type: socket type
+        :param int sock_proto: socket protocol number
+
+        NOTE We break this out to make it easier to patch in mock tests
+        """
+        return gevent.socket.socket(sock_family, sock_type, sock_proto)
