@@ -13,14 +13,15 @@ long_description = ('Pika is a pure-Python implementation of the AMQP 0-9-1 '
                     'protocol that tries to stay fairly independent of the '
                     'underlying network support  library. Pika was developed '
                     'primarily for use with RabbitMQ, but should also work '
-                    'with other AMQP 0-9-1 brokers.')
+                    'with other AMQP 0-9-1 brokers. This package has support'
+                    'for gevents')
 
 setup(name='gevent-pika',
       version='0.3',
       description='Pika Python AMQP Client Library',
       long_description=open('README.rst').read(),
-      maintainer='Gavin M. Roy',
-      maintainer_email='gavinmroy@gmail.com',
+      maintainer='VOLTTRON Community',
+      maintainer_email='volttron@pnnl.gov',
       url='https://pika.readthedocs.io',
       packages=['pika', 'pika.adapters'],
       license='BSD',
